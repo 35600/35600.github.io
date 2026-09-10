@@ -381,19 +381,21 @@ nav {
     margin-left: 4px;
 }
 
-nav ul {
+/* ---------- DESKTOP NAVIGATION ---------- */
+/* Horizontal menu list on desktop */
+nav ul#sidemenu {
     display: flex;
     align-items: center;
     gap: 24px;
     list-style: none;
 }
 
-nav ul li {
+nav ul#sidemenu li {
     display: inline-block;
     list-style: none;
 }
 
-nav ul li a {
+nav ul#sidemenu li a {
     color: var(--text-primary);
     text-decoration: none;
     font-size: 0.96rem;
@@ -404,11 +406,11 @@ nav ul li a {
     transition: opacity var(--transition-fast);
 }
 
-nav ul li a:hover {
+nav ul#sidemenu li a:hover {
     opacity: 1;
 }
 
-nav ul li a::after {
+nav ul#sidemenu li a::after {
     content: '';
     width: 0;
     height: 2px;
@@ -419,11 +421,44 @@ nav ul li a::after {
     transition: width 0.4s ease;
 }
 
-nav ul li a:hover::after {
+nav ul#sidemenu li a:hover::after {
     width: 100%;
 }
 
-/* Mobile overlay */
+/* HAMBURGER ICON — HIDDEN ON DESKTOP */
+nav .fa-bars {
+    display: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10000;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    line-height: 1;
+    transition: transform var(--transition-fast);
+}
+
+nav .fa-bars:hover {
+    transform: scale(1.1);
+}
+
+/* CLOSE BUTTON ITEM — HIDDEN ON DESKTOP */
+nav ul#sidemenu li.menu-close-item {
+    display: none;
+}
+
+.menu-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+}
+
+/* Mobile overlay (used only when sidebar is active on mobile) */
 .mobile-overlay {
     position: fixed;
     inset: 0;
@@ -444,44 +479,9 @@ nav ul li a:hover::after {
     pointer-events: auto;
 }
 
-/* Hamburger */
-nav .fa-bars {
-    display: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 1;
-    background: transparent;
-    border: none;
-    padding: 8px;
-    line-height: 1;
-    transition: transform var(--transition-fast);
-}
-
-nav .fa-bars:hover {
-    transform: scale(1.1);
-}
-
-/* Close button in sidebar - HIDDEN ON DESKTOP */
-.menu-close-item {
-    display: none !important;
-}
-
-.menu-close {
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1.6rem;
-    cursor: pointer;
-    padding: 4px;
-    line-height: 1;
-}
-
-#sidemenu {
-    right: -320px;
-}
-
-/* Header content */
+/* ============================================================
+   4. HEADER CONTENT
+   ============================================================ */
 .header-text {
     position: relative;
     z-index: 1;
@@ -636,7 +636,7 @@ nav .fa-bars:hover {
 }
 
 /* ============================================================
-   4. HIGHLIGHTS
+   5. HIGHLIGHTS
    ============================================================ */
 .highlights {
     padding: 24px 0 8px;
@@ -697,7 +697,7 @@ nav .fa-bars:hover {
 }
 
 /* ============================================================
-   5. ABOUT SECTION
+   6. ABOUT SECTION
    ============================================================ */
 #about {
     padding: 90px 0 60px;
@@ -906,7 +906,7 @@ nav .fa-bars:hover {
 }
 
 /* ============================================================
-   6. SERVICES
+   7. SERVICES
    ============================================================ */
 #services {
     padding: 70px 0;
@@ -994,7 +994,7 @@ nav .fa-bars:hover {
 }
 
 /* ============================================================
-   7. PORTFOLIO
+   8. PORTFOLIO
    ============================================================ */
 #portfolio {
     padding: 70px 0 60px;
@@ -1142,7 +1142,7 @@ nav .fa-bars:hover {
 }
 
 /* ============================================================
-   8. CONTACT
+   9. CONTACT
    ============================================================ */
 #contact {
     padding: 70px 0 90px;
@@ -1266,7 +1266,7 @@ form textarea:focus {
 }
 
 /* ============================================================
-   9. FLOATING WHATSAPP
+   10. FLOATING WHATSAPP
    ============================================================ */
 .wa-floating {
     position: fixed;
@@ -1344,7 +1344,7 @@ form textarea:focus {
 }
 
 /* ============================================================
-   10. LIGHTBOX
+   11. LIGHTBOX
    ============================================================ */
 .lightbox {
     position: fixed;
@@ -1442,7 +1442,7 @@ form textarea:focus {
 }
 
 /* ============================================================
-   11. COOKIE CONSENT BANNER
+   12. COOKIE CONSENT BANNER
    ============================================================ */
 .cookie-banner {
     position: fixed;
@@ -1531,7 +1531,6 @@ form textarea:focus {
     color: var(--accent-pink);
 }
 
-/* Cookie preferences modal */
 .cookie-modal {
     position: fixed;
     inset: 0;
@@ -1681,7 +1680,7 @@ form textarea:focus {
 }
 
 /* ============================================================
-   12. LEGAL MODAL (Privacy / Terms)
+   13. LEGAL MODAL (Privacy / Terms)
    ============================================================ */
 .legal-modal {
     position: fixed;
@@ -1771,21 +1770,26 @@ form textarea:focus {
 }
 
 /* ============================================================
-   13. RESPONSIVE MEDIA QUERIES
+   14. RESPONSIVE MEDIA QUERIES
    ============================================================ */
 
-/* --- Tablet & below: sidebar nav + stacking --- */
+/* ---------- TABLET & MOBILE: sidebar nav + stacking ---------- */
 @media only screen and (max-width: 860px) {
     .container {
         padding: 10px 6%;
     }
 
+    /* SHOW HAMBURGER ON MOBILE / TABLET */
     nav .fa-bars {
         display: block;
+        color: #fff;
+        font-size: 1.6rem;
+        z-index: 10000;
+        position: relative;
     }
 
-    nav ul {
-        background-color: #0b0f17 !important;
+    /* Convert the desktop horizontal menu into a slide-in sidebar */
+    nav ul#sidemenu {
         background: #0b0f17 !important;
         border-left: 1px solid var(--border-light);
         box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
@@ -1797,31 +1801,41 @@ form textarea:focus {
         padding: 72px 18px 32px;
         z-index: 9999 !important;
         transition: right 0.35s ease;
-        display: block;
-        gap: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         overflow-y: auto;
-        pointer-events: auto;
         list-style: none;
     }
 
-    nav ul.active {
+    nav ul#sidemenu.active {
         right: 0;
     }
 
-    /* Show the close button only on mobile */
-    .menu-close-item {
-        display: block !important;
+    /* SHOW THE CLOSE BUTTON ITEM INSIDE THE SIDEBAR ON MOBILE */
+    nav ul#sidemenu li.menu-close-item {
+        display: block;
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
     }
 
-    nav ul li {
-        display: block;
-        margin: 0 0 10px;
+    nav ul#sidemenu li.menu-close-item .menu-close {
+        color: #ffffff;
+        font-size: 1.6rem;
+        padding: 8px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        line-height: 1;
     }
 
-    nav ul li a {
+    nav ul#sidemenu li a {
         display: block;
-        position: relative;
-        z-index: 2;
         padding: 16px 18px;
         border-radius: var(--radius-sm);
         font-size: 1.05rem;
@@ -1830,16 +1844,13 @@ form textarea:focus {
         letter-spacing: 0.02em;
         background: #121824;
         border: 1px solid var(--border-light);
-        text-shadow: none;
-        cursor: pointer;
-        pointer-events: auto;
         text-decoration: none;
         line-height: 1.4;
         transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
     }
 
-    nav ul li a:hover,
-    nav ul li a:focus {
+    nav ul#sidemenu li a:hover,
+    nav ul#sidemenu li a:focus {
         background: linear-gradient(135deg, var(--accent-pink), var(--accent-magenta));
         border-color: transparent;
         color: #ffffff;
@@ -1847,16 +1858,7 @@ form textarea:focus {
         box-shadow: 4px 0 20px rgba(255, 0, 79, 0.4);
     }
 
-    .menu-close {
-        position: absolute;
-        top: 22px;
-        right: 22px;
-        color: #ffffff;
-        font-size: 1.6rem;
-        cursor: pointer;
-        z-index: 10;
-    }
-
+    /* Header layout stacks */
     .header-text {
         flex-direction: column;
         align-items: flex-start;
@@ -1872,6 +1874,7 @@ form textarea:focus {
         flex: 1 1 100%;
     }
 
+    /* About / contact columns stack */
     .about-col-1,
     .about-col-2,
     .contact-left,
@@ -1906,7 +1909,7 @@ form textarea:focus {
     }
 }
 
-/* --- Small phones --- */
+/* ---------- SMALL PHONES ---------- */
 @media only screen and (max-width: 600px) {
     #header {
         background:
@@ -2032,7 +2035,7 @@ form textarea:focus {
     }
 }
 
-/* --- Extra small devices --- */
+/* ---------- EXTRA SMALL DEVICES ---------- */
 @media only screen and (max-width: 380px) {
     .header-text h1 {
         font-size: 1.8rem;
