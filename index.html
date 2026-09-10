@@ -233,6 +233,7 @@
         <div class="container">
             <h2 class="sub-title" id="portfolio-heading">My Work</h2>
             <div class="work-list">
+                <!-- Project 1: Ivy Interactive Portfolio -->
                 <div class="work">
                     <img src="projo/projo1.png" alt="Ivy Interactive Portfolio homepage preview" loading="lazy" width="600" height="400">
                     <div class="layer">
@@ -249,6 +250,7 @@
                     </div>
                 </div>
 
+                <!-- Project 2: Stellular Business Hub -->
                 <div class="work">
                     <img src="projo/projo2.png" alt="Stellular Business Hub website preview" loading="lazy" width="600" height="400">
                     <div class="layer">
@@ -265,6 +267,41 @@
                     </div>
                 </div>
 
+                <!-- Project 3: Galaxy Resort Kitengela (NEW) -->
+                <div class="work">
+                    <img src="projo/projo6.jpg" alt="Galaxy Resort Kitengela website preview" loading="lazy" width="600" height="400">
+                    <div class="layer">
+                        <span class="badge badge-blue">Hospitality Website</span>
+                        <h3>Galaxy Resort Kitengela</h3>
+                        <p>A luxury resort website featuring rooms, dining, events, and spa services with a serene, premium visual identity.</p>
+                        <div class="tech-tags">
+                            <span>Responsive</span> <span>Booking UI</span> <span>Brand Design</span>
+                        </div>
+                        <div class="layer-actions">
+                            <a href="https://chic-scone-d96e36.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="Open Galaxy Resort in a new tab"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                            <button type="button" class="portfolio-trigger" data-image="projo/projo6.jpg" data-title="Galaxy Resort Kitengela" data-badge="Hospitality Website" data-description="A 4-star luxury resort website showcasing rooms, fine dining, conferences, weddings, and spa facilities with an elegant, serene design." aria-label="Preview Galaxy Resort Kitengela"><i class="fas fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Cozy B&B (NEW) -->
+                <div class="work">
+                    <img src="projo/projo7.jpg" alt="Cozy B&B luxury accommodation website preview" loading="lazy" width="600" height="400">
+                    <div class="layer">
+                        <span class="badge badge-purple">Boutique B&amp;B</span>
+                        <h3>Cozy B&amp;B</h3>
+                        <p>A boutique bed-and-breakfast platform with room showcases, guest testimonials, FAQs, and a warm, inviting aesthetic.</p>
+                        <div class="tech-tags">
+                            <span>Booking UI</span> <span>Testimonials</span> <span>Modern UI</span>
+                        </div>
+                        <div class="layer-actions">
+                            <a href="https://moonlit-haupia-a478d5.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="Open Cozy B&amp;B in a new tab"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                            <button type="button" class="portfolio-trigger" data-image="projo/projo7.jpg" data-title="Cozy B&amp;B" data-badge="Boutique B&amp;B" data-description="A boutique bed-and-breakfast platform featuring premium room showcases, guest testimonials, comprehensive FAQs, and a warm, inviting aesthetic." aria-label="Preview Cozy B&amp;B"><i class="fas fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: AI Development Core -->
                 <div class="work">
                     <img src="projo/projo4.png" alt="AI Development Core Hub screenshot" loading="lazy" width="600" height="400">
                     <div class="layer">
@@ -281,6 +318,7 @@
                     </div>
                 </div>
 
+                <!-- Project 6: Kiki's Kitchen -->
                 <div class="work">
                     <img src="projo/projo5.jpg" alt="Kiki's Kitchen restaurant website preview" loading="lazy" width="600" height="400">
                     <div class="layer">
@@ -641,7 +679,6 @@
                 localStorage.setItem('cookieConsent', JSON.stringify(consent));
                 cookieBanner.classList.remove('show');
                 cookieBanner.setAttribute('aria-hidden', 'true');
-                // Here you would conditionally load analytics/marketing scripts based on consent
                 console.log('Cookie consent saved:', consent);
             }
 
@@ -702,7 +739,6 @@
                 });
             }
 
-            // Show banner on load if no consent
             showCookieBanner();
 
             /* ---------- Legal Modal (Privacy / Terms) ---------- */
